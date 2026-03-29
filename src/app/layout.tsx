@@ -17,7 +17,7 @@ import Providers from "./Providers";
 import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
-  title: "Abaseen | Authentic South Asian Restaurant in Manchester",
+  title: "Tea time | Authentic South Asian Restaurant in Manchester",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_BASE_URL || "https://abaseen-new.vercel.app/",
   ),
