@@ -1,0 +1,291 @@
+/* Keyframes for animations */
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Floating animations */
+@keyframes continuousFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes continuousFloatSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Floating element animation */
+@keyframes floatingElement {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Slide in animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px) rotate(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+/* Title animation */
+@keyframes titleAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Text animation */
+@keyframes textAnimation {
+  from {
+    opacity: 0;
+    transform: rotate(10deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(19deg) scale(1);
+  }
+}
+
+/* Main image animation */
+@keyframes mainImageAnimation {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Main section animation */
+.take-section {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Container animation with stagger effect */
+.container-animation {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.container-animation > * {
+  animation-delay: 0.15s;
+}
+
+/* Floating elements */
+.floating-element {
+  animation: floatingElement 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Slide animations */
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Continuous floating animations */
+.continuous-float {
+  animation: continuousFloat 3s ease-in-out infinite;
+}
+
+.continuous-float-slow {
+  animation: continuousFloatSlow 4s ease-in-out infinite;
+}
+
+/* Title animations */
+.title-animation {
+  animation: titleAnimation 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Text animations */
+.text-animation {
+  animation: textAnimation 0.8s ease-out 0.3s;
+  animation-fill-mode: both;
+}
+
+/* Main image animations */
+.main-image-animation {
+  animation: mainImageAnimation 1s ease-out 0.2s;
+  animation-fill-mode: both;
+}
+
+/* Hover effects */
+.button-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.button-hover:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.button-hover:active {
+  transform: scale(0.95) rotate(-2deg);
+  transition: transform 0.1s;
+}
+
+.title-hover {
+  transition: all 0.3s ease;
+}
+
+.title-hover:hover {
+  transform: scale(1.05);
+  text-shadow: -6px 5px 0 #0095df;
+}
+
+.text-hover {
+  transition: all 0.3s ease;
+}
+
+.text-hover:hover {
+  transform: scale(1.1) rotate(22deg);
+}
+
+.main-image-hover {
+  transition: transform 0.3s ease;
+}
+
+.main-image-hover:hover {
+  transform: scale(1.02);
+}
+
+/* Animation delays for stagger effect */
+.floating-element:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.floating-element:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.floating-element:nth-child(3) {
+  animation-delay: 0.45s;
+}
+
+.slide-in-left:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.slide-in-right:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+/* Additional stagger delays for complex layouts */
+.container-animation > *:nth-child(1) {
+  animation-delay: 0.15s;
+}
+.container-animation > *:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.container-animation > *:nth-child(3) {
+  animation-delay: 0.45s;
+}
+.container-animation > *:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.container-animation > *:nth-child(5) {
+  animation-delay: 0.75s;
+}
+.container-animation > *:nth-child(6) {
+  animation-delay: 0.9s;
+}
+.container-animation > *:nth-child(7) {
+  animation-delay: 1.05s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .continuous-float {
+    animation-duration: 2s;
+  }
+
+  .continuous-float-slow {
+    animation-duration: 3s;
+  }
+}
+
+/* Performance optimizations */
+.floating-element,
+.slide-in-left,
+.slide-in-right,
+.title-animation,
+.text-animation,
+.main-image-animation {
+  will-change: transform, opacity;
+}
+
+.continuous-float,
+.continuous-float-slow {
+  will-change: transform;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .continuous-float,
+  .continuous-float-slow {
+    animation: none;
+  }
+
+  .button-hover:hover,
+  .title-hover:hover,
+  .text-hover:hover,
+  .main-image-hover:hover {
+    transform: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
