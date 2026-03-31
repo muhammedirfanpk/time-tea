@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
 
          <div className=" hidden md:block top-[19%]">
           <Image
-            src={"/images/home/hero/hero-logo.png"}
+            src={"/images/logo.png"}
             alt="teatime logo"
             width={110}
             height={70}

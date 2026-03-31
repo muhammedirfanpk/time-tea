@@ -28,7 +28,7 @@ const About : React.FC = () => {
 
                   <div className="bg-[#3F2419] flex items-center justify-center">
                      <Image
-                       src={"/images/home/hero/hero-logo.png"}
+                       src={"/images/logo.png"}
                         alt="teatime logo"
                         width={130}
                         height={70}
