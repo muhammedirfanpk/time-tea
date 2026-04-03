@@ -162,7 +162,7 @@ const Menu: React.FC = () => {
                 variants={imageFadeIn}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className="border-[1px] border-[#000000] p-5 text-left"
               >
                 <p className="text-sm text-[#3F2419] font-semibold">
@@ -179,7 +179,7 @@ const Menu: React.FC = () => {
               variants={imageFadeIn}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="flex justify-center relative h-[400px] w-[360px] overflow-hidden"
             >
               <Image
@@ -199,7 +199,7 @@ const Menu: React.FC = () => {
                 variants={imageFadeIn}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className="border border-[#000000] p-5 text-left"
               >
                 <p className="text-sm text-[#3F2419] font-semibold">
