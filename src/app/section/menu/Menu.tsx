@@ -17,7 +17,7 @@
 //       <div className="hidden md:block pt-4">
 //         <div className=" mx-auto grid grid-cols-[1fr_1.5fr_1fr] gap-6 items-start px-6">
 
-          
+
 //           <div className="flex flex-col gap-6">
 //             {[1, 2, 3].map((item) => (
 //               <div key={item} className="border-[1px] border-[#000000] p-5 text-left">
@@ -29,7 +29,7 @@
 //             ))}
 //           </div>
 
-          
+
 //           <div className="flex justify-center ">
 //             <div className="relative h-[400px] w-[360px] overflow-top-visible overflow-bottom-hidden">
 
@@ -43,7 +43,7 @@
 //             </div>
 //           </div>
 
-          
+
 //           <div className="flex flex-col gap-6">
 //             {[1, 2, 3].map((item) => (
 //               <div key={item} className="border border-[#000000] p-5 text-left">
@@ -160,6 +160,9 @@ const Menu: React.FC = () => {
               <motion.div
                 key={item}
                 variants={imageFadeIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 className="border-[1px] border-[#000000] p-5 text-left"
               >
                 <p className="text-sm text-[#3F2419] font-semibold">
@@ -172,17 +175,20 @@ const Menu: React.FC = () => {
 
           {/* Center Image */}
           <div className="flex justify-center">
-          <motion.div
-            variants={imageFadeIn}
-            className="flex justify-center relative h-[400px] w-[360px] overflow-hidden"
-          >
-            <Image
-              src="/images/home/menu/1.webp.png"
-              alt="burger"
-              fill
-              className="object-cover rounded-t-[120px] object-bottom scale-y-[1.1]"
-            />
-          </motion.div>
+            <motion.div
+              variants={imageFadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="flex justify-center relative h-[400px] w-[360px] overflow-hidden"
+            >
+              <Image
+                src="/images/home/menu/1.webp.png"
+                alt="burger"
+                fill
+                className="object-cover rounded-t-[120px] object-bottom scale-y-[1.1]"
+              />
+            </motion.div>
           </div>
 
           {/* Right Cards */}
@@ -191,6 +197,9 @@ const Menu: React.FC = () => {
               <motion.div
                 key={item}
                 variants={imageFadeIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 className="border border-[#000000] p-5 text-left"
               >
                 <p className="text-sm text-[#3F2419] font-semibold">
@@ -235,6 +244,9 @@ const Menu: React.FC = () => {
               <motion.div
                 key={item}
                 variants={imageFadeIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 className="border border-[#000000] p-5 text-left"
               >
                 <p className="text-sm text-[#3F2419] font-semibold">
