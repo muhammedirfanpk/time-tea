@@ -1,18 +1,21 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ScrollAnimate } from "@/components/Animation";
-import { url } from "inspector";
+import { motion } from "framer-motion";
+import { fadeUp, imageZoomOut,FadeOnScroll } from "@/components/Animation";
+
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative  w-full h-screen overflow-hidden   ">
+    <section  className="relative  w-full h-screen overflow-hidden   ">
 
       <div className="hidden  md:flex h-full w-full">
 
         
-        <div className="relative  w-[30%] h-full overflow-hidden">
+        <div 
+       
+        className="relative  w-[30%] h-full overflow-hidden">
           <Image
             src="/images/home/hero/1.webp.png"
             alt="hero image 1"
@@ -23,7 +26,9 @@ const Hero: React.FC = () => {
         </div>
 
         
-        <div className="relative w-[40%] h-full overflow-hidden">
+        <div 
+        
+        className="relative w-[40%] h-full overflow-hidden">
           <Image
             src="/images/home/hero/2.webp.png"
             fill
@@ -33,7 +38,8 @@ const Hero: React.FC = () => {
         </div>
 
         
-        <div className="relative w-[30%] h-full overflow-hidden">
+        <div
+          className="relative w-[30%] h-full overflow-hidden">
           <Image
             src="/images/home/hero/3.webp.png"
             alt="hero image 3"
@@ -48,7 +54,11 @@ const Hero: React.FC = () => {
 
       {/* mobile view */}
 
-      <div className="md:hidden relative w-full h-full">
+      <motion.div
+       variants={imageZoomOut}
+        initial="hidden"
+        animate="visible"
+       className="md:hidden relative w-full h-full">
         <Image
           src="/images/home/hero/3.webp.png"
           alt="tea time hero image"
@@ -57,7 +67,7 @@ const Hero: React.FC = () => {
           className="object-cover object-center "
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/40 to-transparent" />
-      </div>
+      </motion.div>
 
 
       <div className="absolute  inset-0 z-20 flex flex-col items-center justify-center  text-center px-4">
@@ -70,23 +80,36 @@ const Hero: React.FC = () => {
             height={70}
           />
         </div>
-
-        <h1 style={{ fontFamily: "var(--font-body)" }}  className=" text-[#FFFDF8]  text-5xl md:text-7xl  leading-tight ">
+       <FadeOnScroll>
+        <h1 
+        // variants = {}
+        // initial="hidden"
+        // animate="visible"
+        style={{ fontFamily: "var(--font-body)" }}  className=" text-[#FFFDF8]  text-5xl md:text-7xl  leading-tight ">
           Not Just Tea.  <br />
           It&apos;s Teatime
         </h1>
+        </FadeOnScroll>
 
-        <div className=" md:hidden pb-10">
-          <Button className=" py-2 px-4 bg-[#FFFDF8] hover:bg-transparent  translate-y-6 rounded-none">
+        <motion.div 
+         whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300 }}
+        className=" md:hidden pb-10">
+          <Button className=" py-2 px-4 bg-[#FFFDF8]  translate-y-6 rounded-none">
             VIEW FULL MENU
           </Button>
-        </div>
+        </motion.div>
 
-        <div className="absolute hidden md:block top-5 right-4  ">
+        <motion.div 
+         whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300 }}
+        className="absolute hidden md:block top-5 right-4  ">
           <Button className=" px-6 py-3 bg-[#FFFDF8] hover:bg-transparent rounded-none">
             VIEW FULL MENU
           </Button>
-        </div>
+        </motion.div>
 
        
 
@@ -107,8 +130,8 @@ const Hero: React.FC = () => {
 
 
       {/* Animated Content Container */}
-      <ScrollAnimate>
-        {/* Animated Heading */}
+      {/* <ScrollAnimate>
+        
         <Image
           src={"/images/logo.webp"}
           width={171}
@@ -128,7 +151,7 @@ const Hero: React.FC = () => {
             </Button>
           </Link>
         </div>
-      </ScrollAnimate>
+      </ScrollAnimate>  */}
 
     </section>
   );

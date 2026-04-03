@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { easeInOut, motion, useScroll, useTransform, Variant } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 interface AnimatedContentProps {
@@ -853,3 +853,152 @@ export const TiltImage: React.FC<ImageAnimationProps> = ({
     </motion.div>
   );
 };
+
+
+
+
+
+
+
+
+
+
+import { Variants } from "framer-motion";
+
+export const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.25,
+    },
+  },
+};
+
+export const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
+export const imageZoomOut: Variants = {
+  hidden: { scale: 1.2, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 3.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
+
+
+
+
+
+export const FadeOnScroll = ({
+  children,
+  delay = 0,
+  duration = 0.8,
+  y = 40,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  duration?: number;
+  y?: number;
+}) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, margin: "-100px" }}
+      transition={{
+        duration,
+        delay,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+
+
+
+
+import React from "react";
+
+
+export const ImageZoom = ({
+  children,
+  className = "",
+  duration = 1.2,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  duration?: number;
+}) => {
+  return (
+    <motion.div
+      className={`overflow-hidden will-change-transform ${className}`}
+      initial={{ scale: 1.15, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{
+        duration,
+        ease: [0.25, 0.1, 0.25, 1], // 🔥 smooth cubic-bezier
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+
+// export const slider = {
+//   enter: (direction: number) => ({
+//     x: direction > 0 ? 300 : -300,
+//     opacity: 0,
+//   }),
+//   center: {
+//     x: 0,
+//     opacity: 1,
+//   },
+//   exit: (direction: number) => ({
+//     x: direction > 0 ? -300 : 300,
+//     opacity: 0,
+//   }),
+// };
+
+export const slider = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 200 : -200,
+    opacity: 0,
+    scale: 0.95,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -200 : 200,
+    opacity: 0,
+    scale: 0.95,
+  }),
+};
+
+export  const imageFadeIn = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };

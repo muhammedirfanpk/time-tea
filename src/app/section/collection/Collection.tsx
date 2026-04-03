@@ -1,6 +1,8 @@
-
+"use client"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import {motion} from "framer-motion"
+import { FadeOnScroll } from "@/components/Animation"
 
 const Collection: React.FC = () => {
   return (
@@ -59,15 +61,21 @@ const Collection: React.FC = () => {
         
         <div className="flex justify-center items-center">
           <div className="text-center max-w-xl text-white">
-            <h1 className="text-3xl lg:text-4xl md:text-3xl font-playfair_display mb-6 leading-relaxed">
+            <FadeOnScroll>
+            <h1
+             className="text-3xl lg:text-4xl md:text-3xl font-playfair_display mb-6 leading-relaxed">
               A curated collection of <br /> coffee, craft, and culture. <br /> Immerse yourself in our <br /> daily rhythm at
             </h1>
+
             <Button className="font-playfair_display text-lg rounded-none px-10 py-3 border bg-[#3E2415] hover:bg-transparent border-[#FFFDF8] text-[#FFFDF8] font font-semibold  transition">
               @teatime
             </Button>
+            </FadeOnScroll>
           </div>
         </div>
+
       </div>
+
 
       {/* mobile view */}
       <div className="md:hidden relative bg-[#3E2415]  px-4 py-16 flex flex-col items-center gap-10">
