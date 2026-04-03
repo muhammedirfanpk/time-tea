@@ -539,13 +539,12 @@ export const EntranceWave: React.FC<TextAnimationProps> = ({
   delay = 0,
   duration = 0.6,
 }) => {
-  // Handle both <br> and \n for flexibility
-  let lines = text.split(/<br\s*\/?>/i); // Handle <br>, <br/>, <br />
+  let lines = text.split(/<br\s*\/?>/i);
   if (lines.length === 1) {
     lines = text.split("\n");
   }
 
-  let charIndex = 0; // Keep track of overall character index for staggered animation
+  let charIndex = 0;
 
   return (
     <div className={combineClasses("flex flex-col", className)}>
@@ -561,8 +560,8 @@ export const EntranceWave: React.FC<TextAnimationProps> = ({
                 animate={{ y: 0, opacity: 1 }}
                 transition={{
                   duration,
-                  delay: delay + currentCharIndex * 0.1,
-                  ease: "easeOut",
+                  delay: delay + currentCharIndex * 0.05,
+                  ease: [0.25, 0.8, 0.25, 1], // ✅ FIXED
                 }}
                 whileHover={{
                   y: -10,
@@ -578,6 +577,7 @@ export const EntranceWave: React.FC<TextAnimationProps> = ({
     </div>
   );
 };
+
 // 21. Continuous wave - Enhanced
 export const ContinuousWave: React.FC<TextAnimationProps> = ({
   text,
@@ -1140,7 +1140,7 @@ export const ImageZoom = ({
 /* =========================
    SLIDER ANIMATION
 ========================= */
-export const slider = {
+export const slider:Variants = {
   enter: (direction: number) => ({
     x: direction > 0 ? 200 : -200,
     opacity: 0,
@@ -1157,3 +1157,37 @@ export const slider = {
     scale: 0.95,
   }),
 };
+
+
+
+// export const EntranceWave = ({
+//   text,
+//   className = "",
+//   delay = 0,
+//   duration = 0.6,
+// }: {
+//   text: string;
+//   className?: string;
+//   delay?: number;
+//   duration?: number;
+// }) => {
+//   return (
+//     <div className={className}>
+//       {text.split("").map((char, index) => (
+//         <motion.span
+//           key={index}
+//           className="inline-block"
+//           initial={{ y: 40, opacity: 0 }}
+//           animate={{ y: 0, opacity: 1 }}
+//           transition={{
+//             duration,
+//             delay: delay + index * 0.05,
+//             ease: [0.25, 0.8, 0.25, 1],
+//           }}
+//         >
+//           {char === " " ? "\u00A0" : char}
+//         </motion.span>
+//       ))}
+//     </div>
+//   );
+// };
