@@ -1,4 +1,4 @@
-import { EntranceWave } from "@/components/Animation";
+// import { EntranceWave } from "@/components/Animation";
 import { ReviewsCarousel } from "./ReviewCarousal";
 import { ReviewService } from "./ReviewService";
 
