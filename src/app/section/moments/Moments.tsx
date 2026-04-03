@@ -89,17 +89,19 @@
 "use client"; // Required for Next.js App Router
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { imageFadeIn } from "@/components/Animation";
 
 const Moments: React.FC = () => {
+    
   // Animation variants for the images
-  const imageFadeIn = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  };
+//   const imageFadeIn = {
+//     hidden: { opacity: 0, y: 30 },
+//     visible: { 
+//       opacity: 1, 
+//       y: 0,
+//       transition: { duration: 0.8,ease: [0.25, 0.8, 0.25, 1] }
+//     }
+//   };
 
   const centerTextReveal = {
     hidden: { opacity: 0, scale: 0.9 },
@@ -138,7 +140,8 @@ const Moments: React.FC = () => {
 
         {/* Center Column */}
         <div className="flex flex-col justify-between h-full gap-1 md:gap-3">
-          <motion.div variants={imageFadeIn} className="h-[33%] overflow-hidden">
+          <motion.div variants={imageFadeIn}
+           className="h-[33%] overflow-hidden">
             <Image
               width={400}
               height={200}
